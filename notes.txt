@@ -3,3 +3,4 @@ Training model -> to fit so datas can be
 Pandas python libraby to manipulate datas by using this commande
 scikit-learn library to create models
 DataFrame is a data structure with rows and columns (like SQL)
+

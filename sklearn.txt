@@ -1,1 +1,14 @@
 scikit-learn library to create models
+# Import library
+from sklearn.tree import DecisionTreeRegressor
+
+# Initialize the model
+iowa_model = DecisionTreeRegressor(random_state=1)
+
+# Train the model
+iowa_model.fit(X, y)
+X are datas with features we selected before
+y is a precise feature
+
+# Make Predictions 
+predictions = model.predict(X)
