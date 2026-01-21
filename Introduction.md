@@ -5,6 +5,32 @@ A **model** in machine learning is like a smart recipe that learns patterns from
 - It takes input data (features) and tries to predict an output (target).
 - Example: Predicting house prices based on features like size, year built, etc.
 
+## Example: Basic ML Workflow in Python
+
+```python
+# Import libraries
+import pandas as pd
+from sklearn.tree import DecisionTreeRegressor
+
+# Load data
+data = pd.read_csv("my_data.csv")
+
+# Select features and target
+X = data[["LotArea", "YearBuilt", "1stFlrSF"]]
+y = data["SalePrice"]
+
+# Define and fit the model
+model = DecisionTreeRegressor(random_state=1)
+model.fit(X, y)
+
+# Make predictions
+predictions = model.predict(X)
+
+# Show first predictions and actual values
+print(predictions[:5])
+print(y.head())
+```
+
 ## Why Do We Use Models?
 - To make predictions or decisions automatically, based on data.
 - To find patterns that are too complex for humans to spot easily.
@@ -21,7 +47,10 @@ A **model** in machine learning is like a smart recipe that learns patterns from
 
 ### 3. Predict
 - After training, the model can make predictions on new or existing data.
-- Example: `predictions = model.predict(X)`
+- Example:
+```python
+predictions = model.predict(X)
+```
 
 ### 4. Evaluate
 - Check how good the model’s predictions are.
