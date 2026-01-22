@@ -13,7 +13,7 @@ import pandas as pd
 melbourne_file_path = '../input/melbourne-housing-snapshot/melb_data.csv'
 melbourne_data = pd.read_csv(melbourne_file_path)
 
-# Filter rows with missing price values
+# Filter rows to ensure there will be no missing values for price
 filtered_melbourne_data = melbourne_data.dropna(axis=0)
 
 # Choose target and features
@@ -68,18 +68,9 @@ print(mae_val)
 > - The `random_state` argument ensures you get the same split every time you run the script.
 > - MAE calculated on validation data gives a more realistic estimate of model performance on new, unseen data.
 
----
-
 ## Key Points
 
 - **Validation** = testing the model on data it has never seen.
 - **MAE** measures the average error between actual values and predictions.
 - Always split your data into training and validation sets.
 - Use `train_test_split` for a random and reproducible split.
-
----
-
-## Further Reading
-
-- You can also use **cross-validation** for even more robust evaluation.
-- Other metrics exist depending on the problem type (classification, regression, etc.).
