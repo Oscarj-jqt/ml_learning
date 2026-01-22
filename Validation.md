@@ -74,3 +74,16 @@ print(mae_val)
 - **MAE** measures the average error between actual values and predictions.
 - Always split your data into training and validation sets.
 - Use `train_test_split` for a random and reproducible split.
+
+## Conclusion
+
+The model works well on training data but fails to generalize to unseen data. This is a classic sign of overfitting.
+
+**How to improve the model:**
+
+- Try different features (add, remove, or transform them).
+- Use a different model type (e.g., Random Forest, Gradient Boosting).
+- Apply regularization techniques to prevent overfitting.
+- Collect more data if possible.
+
+The goal is to build a model that performs well not only on the training data but also on new, unseen data.
