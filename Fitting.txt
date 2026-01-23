@@ -32,3 +32,12 @@ Max leaf nodes: 5000  		 Mean Absolute Error:  254983
 
 Of the options listed, 500 is the optimal number of leaves.
 
+
+
+With that we can now fit the model using all data
+
+# Fill in argument to make optimal size and uncomment
+final_model = DecisionTreeRegressor(max_leaf_nodes=best_tree_size, random_state=1)
+
+# fit the final model
+final_model.fit(X, y)
