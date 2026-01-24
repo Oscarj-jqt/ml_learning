@@ -1,50 +1,106 @@
-Pandas python libraby for data analysis to create, manipulate data
+# Introduction to Pandas
 
+**Pandas** is a Python library for data analysis. It allows you to create and manipulate data easily.
+
+---
+
+## DataFrame
+
+A **DataFrame** is a table with rows and columns (2 dimensions).
+
+**Example:**
+
+```python
 import pandas as pd
 
-DataFrame
-It is a table (rows and columns) 2 dimensions
+df = pd.DataFrame({'Yes': [50, 21], 'No': [131, 2]})
+print(df)
+```
 
-Example
+|    | Yes | No  |
+|----|-----|-----|
+| 0  | 50  | 131 |
+| 1  | 21  | 2   |
 
-pd.DataFrame({'Yes': [50, 21], 'No': [131, 2]})
-Yes	No
-0	50	131
-1	21	2z
+- **Index**: The rows are called the index. If not specified, pandas uses numbers (0, 1, 2, ...).
+- You can assign custom index values:
 
-Index are rows if they are not specified it represents an id.
-We can assign them to values with index =[]
+```python
+df = pd.DataFrame({'Bob': ['I liked it.', 'It was awful.'], 
+                   'Sue': ['Pretty good.', 'Bland.']},
+                  index=['Product A', 'Product B'])
+print(df)
+```
 
-Example
-pd.DataFrame({'Bob': ['I liked it.', 'It was awful.'], 
-              'Sue': ['Pretty good.', 'Bland.']},
-             index=['Product A', 'Product B'])
-Bob	Sue
-Product A	I liked it.	Pretty good.
-Product B	It was awful.	Bland.w
+|           | Bob           | Sue         |
+|-----------|---------------|-------------|
+| Product A | I liked it.   | Pretty good.|
+| Product B | It was awful. | Bland.      |
 
-Series
-It is a list 1 dimension (single column of DataFrame)
+---
 
-Example 
+## Series
 
+A **Series** is like a single column of a DataFrame (1 dimension).
+
+**Example:**
+
+```python
 quantities = ['4 cups', '1 cup', '2 large', '1 can']
 items = ['Flour', 'Milk', 'Eggs', 'Spam']
 recipe = pd.Series(quantities, index=items, name='Dinner')
+print(recipe)
+```
 
-Datas are stocked within CSV file we use pd.read_csv() function to read the data
+| Item   | Quantity |
+|--------|----------|
+| Flour  | 4 cups   |
+| Milk   | 1 cup    |
+| Eggs   | 2 large  |
+| Spam   | 1 can    |
 
+---
+
+## Reading and Saving Data
+
+- Data is often stored in CSV files.
+- Use `pd.read_csv()` to read a CSV file into a DataFrame.
+
+```python
 wine_reviews = pd.read_csv("../input/wine-reviews/winemag-data-130k-v2.csv")
-We can use the shape attribute to check how large the resulting DataFrame is:
+```
 
-wine_reviews.shape
-(129971, 14)
-So our new DataFrame has 130,000 records split across 14 different columns. 
-That's almost 2 million entries (multiply to get an approximative estimation ?)
-.head() to get the top five entries
+- To check the size of your DataFrame, use the `.shape` attribute:
 
-Use to_csv to save a DataFrame to a CSV file.
-Example 
+```python
+print(wine_reviews.shape)
+# Output: (129971, 14)
+```
+This means 129,971 rows and 14 columns.
 
+- To see the first five rows, use `.head()`:
+
+```python
+print(wine_reviews.head())
+```
+
+- To save a DataFrame to a CSV file, use `.to_csv()`:
+
+```python
 animals = pd.DataFrame({'Cows': [12, 20], 'Goats': [22, 19]}, index=['Year 1', 'Year 2'])
 animals.to_csv("cows_and_goats.csv")
+```
+
+---
+
+## Key Points
+
+- **DataFrame**: Table with rows and columns (2D).
+- **Series**: Single column (1D).
+- **Index**: Labels for rows.
+- **Read CSV**: `pd.read_csv()`
+- **Save CSV**: `.to_csv()`
+- **Shape**: `.shape` gives (rows, columns).
+- **Preview**: `.head()` shows the first rows.
+
+Pandas makes it easy to work with data for analysis and machine learning!
