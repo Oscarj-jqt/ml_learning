@@ -28,11 +28,9 @@ It is a list 1 dimension (single column of DataFrame)
 
 Example 
 
-pd.Series([30, 35, 40], index=['2015 Sales', '2016 Sales', '2017 Sales'], name='Product A')
-2015 Sales    30
-2016 Sales    35
-2017 Sales    40
-Name: Product A, dtype: int64
+quantities = ['4 cups', '1 cup', '2 large', '1 can']
+items = ['Flour', 'Milk', 'Eggs', 'Spam']
+recipe = pd.Series(quantities, index=items, name='Dinner')
 
 Datas are stocked within CSV file we use pd.read_csv() function to read the data
 
@@ -44,3 +42,9 @@ wine_reviews.shape
 So our new DataFrame has 130,000 records split across 14 different columns. 
 That's almost 2 million entries (multiply to get an approximative estimation ?)
 .head() to get the top five entries
+
+Use to_csv to save a DataFrame to a CSV file.
+Example 
+
+animals = pd.DataFrame({'Cows': [12, 20], 'Goats': [22, 19]}, index=['Year 1', 'Year 2'])
+animals.to_csv("cows_and_goats.csv")
