@@ -1,1 +1,46 @@
-Pandas python libraby to manipulate datas by using this command
+Pandas python libraby for data analysis to create, manipulate data
+
+import pandas as pd
+
+DataFrame
+It is a table (rows and columns) 2 dimensions
+
+Example
+
+pd.DataFrame({'Yes': [50, 21], 'No': [131, 2]})
+Yes	No
+0	50	131
+1	21	2z
+
+Index are rows if they are not specified it represents an id.
+We can assign them to values with index =[]
+
+Example
+pd.DataFrame({'Bob': ['I liked it.', 'It was awful.'], 
+              'Sue': ['Pretty good.', 'Bland.']},
+             index=['Product A', 'Product B'])
+Bob	Sue
+Product A	I liked it.	Pretty good.
+Product B	It was awful.	Bland.w
+
+Series
+It is a list 1 dimension (single column of DataFrame)
+
+Example 
+
+pd.Series([30, 35, 40], index=['2015 Sales', '2016 Sales', '2017 Sales'], name='Product A')
+2015 Sales    30
+2016 Sales    35
+2017 Sales    40
+Name: Product A, dtype: int64
+
+Datas are stocked within CSV file we use pd.read_csv() function to read the data
+
+wine_reviews = pd.read_csv("../input/wine-reviews/winemag-data-130k-v2.csv")
+We can use the shape attribute to check how large the resulting DataFrame is:
+
+wine_reviews.shape
+(129971, 14)
+So our new DataFrame has 130,000 records split across 14 different columns. 
+That's almost 2 million entries (multiply to get an approximative estimation ?)
+.head() to get the top five entries
